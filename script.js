@@ -5,8 +5,6 @@ function updateDOM(element) {
       element = document.querySelector('[role="menu"]');
     }
 
-    console.log(element)
-
     // Move home, all, popular to top of dropdown
     const filterInput = element.querySelector('[id="header-subreddit-filter"]');
     const getFeeds = [
@@ -18,8 +16,6 @@ function updateDOM(element) {
       element.querySelector('[id="focus-All"]'),
       element.querySelector('[id="focus-HappeningNow"]'),
     ];
-
-    console.log(getFeeds)
 
     if (filterInput) {
       getFeeds.reverse().forEach((item) => {
@@ -35,15 +31,16 @@ const dropdownBar = document.querySelector('[role="navigation"]');
 if (dropdownBar) {
   dropdownBar.addEventListener('click', (event) => {
     const trigger = event.target;
+
+    // Get menu parts
     const sidebarTrigger = dropdownBar.querySelector('.icon-side_menu');
     const menuElm = dropdownBar.querySelector('[role="menu"]');
     
-
     if (trigger === sidebarTrigger) {
       updateDOM();
     }
 
-    if (trigger === dropdownBar.querySelector('button')) {
+    if (trigger === dropdownBar.querySelector('button') && menuElm) {
       updateDOM(menuElm);
     }
   });
