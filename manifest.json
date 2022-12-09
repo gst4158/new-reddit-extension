@@ -1,0 +1,14 @@
+{
+  "name": "Reddit Favorites Bar",
+  "version": "1.0.0",
+  "description": "Create a favorites bar for new Reddit similar to RES for old.reddit",
+  "manifest_version": 3,
+  "author": "Gourmet Knight",
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.com/*"],
+      "js": ["script.js"],
+      "jcss": ["style.css"]
+    }
+  ]
+}
